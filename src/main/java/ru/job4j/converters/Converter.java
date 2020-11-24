@@ -3,8 +3,16 @@ package ru.job4j.converters;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Converter {
+    private static Map<String, Integer> months = new HashMap<>();
+
+    static {
+        initMonthsMap();
+    }
+
     public static LocalDateTime stringToLocalDateTime(String date) {
         String[] data = date.split("\\s");
         if (data.length < 3) {
@@ -18,40 +26,24 @@ public class Converter {
             }
         }
         int day = Integer.parseInt(data[0]);
-        int month = getMonth(data[1]);
+        int month = months.get(data[1]);
         int year = 2000 + Integer.parseInt(data[2].substring(0, 2));
         return LocalDate.of(year, month, day)
                 .atTime(LocalTime.parse(data[3]));
     }
 
-    private static int getMonth(String month) {
-        switch (month) {
-            case "янв":
-                return 1;
-            case "фев":
-                return 2;
-            case "мар":
-                return 3;
-            case "апр":
-                return 4;
-            case "май":
-                return 5;
-            case "июн":
-                return 6;
-            case "июл":
-                return 7;
-            case "авг":
-                return 8;
-            case "сен":
-                return 9;
-            case "окт":
-                return 10;
-            case "ноя":
-                return 11;
-            case "дек":
-                return 12;
-            default:
-                return -1;
-        }
+    private static void initMonthsMap() {
+        months.put("янв", 1);
+        months.put("фев", 2);
+        months.put("мар", 3);
+        months.put("апр", 4);
+        months.put("май", 5);
+        months.put("июн", 6);
+        months.put("июл", 7);
+        months.put("авг", 8);
+        months.put("сен", 9);
+        months.put("окт", 10);
+        months.put("ноя", 11);
+        months.put("дек", 12);
     }
 }
