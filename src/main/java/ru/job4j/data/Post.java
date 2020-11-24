@@ -7,7 +7,7 @@ public class Post {
     private final String description;
     private final LocalDateTime date;
 
-    public Post(String title, String description, LocalDateTime date, String author, String link) {
+    public Post(String title, String description, LocalDateTime date) {
         this.title = title;
         this.description = description;
         this.date = date;
