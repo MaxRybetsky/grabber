@@ -2,12 +2,38 @@ package ru.job4j.grabber;
 
 import java.time.LocalDateTime;
 
+/**
+ * Post that keeps main data of job offer.
+ */
 public class Post {
+    /**
+     * Post's title.
+     */
     private final String title;
+
+    /**
+     * Post's description.
+     */
     private final String description;
+
+    /**
+     * Post's date of creation.
+     */
     private final LocalDateTime date;
+
+    /**
+     * Link to post with job's info.
+     */
     private final String link;
 
+    /**
+     * Creates new Post with input job's info.
+     *
+     * @param title       Input post's title.
+     * @param description Input post's description.
+     * @param date        Input post's date of creation.
+     * @param link        Input post's link to job's offer.
+     */
     public Post(String title, String description, LocalDateTime date, String link) {
         this.title = title;
         this.description = description;
@@ -15,22 +41,50 @@ public class Post {
         this.link = link;
     }
 
+    /**
+     * Shows this {@link Post}'s object's title.
+     *
+     * @return {@link Post#title}.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Shows this {@link Post}'s object's description.
+     *
+     * @return {@link Post#description}.
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Shows this {@link Post}'s object's date
+     * of creation.
+     *
+     * @return {@link Post#date}
+     */
     public LocalDateTime getDate() {
         return date;
     }
 
+    /**
+     * Shows this {@link Post}'s object's link
+     * to job offer.
+     *
+     * @return {@link Post#link}.
+     */
     public String getLink() {
         return link;
     }
 
+    /**
+     * Returns a string representation of the post with
+     * all this {@link Post}'s object's information.
+     *
+     * @return A string representation of the post.
+     */
     @Override
     public String toString() {
         return "Post{"

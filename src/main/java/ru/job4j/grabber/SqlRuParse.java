@@ -11,7 +11,27 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Jobs parser of sql.ru site.
+ */
 public class SqlRuParse implements Parse {
+    /**
+     * Extracts all posts in the page at
+     * site sql.ru with the specify link
+     * to the list.
+     * <p>
+     * Iterates over all links at page
+     * with the specify link and sends
+     * every link of this set of links
+     * to {@link Parse#detail} for extract
+     * data of every post. The adds this
+     * post to list and returns list.
+     *
+     * @param link Link to page with list
+     *             of links to posts.
+     * @return List of posts at sql.ru site
+     * page with the specify link.
+     */
     @Override
     public List<Post> list(String link) {
         List<Post> result = new ArrayList<>();
@@ -29,6 +49,18 @@ public class SqlRuParse implements Parse {
         return result;
     }
 
+    /**
+     * Extracts data of post at
+     * site sql.ru: gets its title,
+     * description, link and date
+     * and returns {@link Post}
+     * object with these parameters.
+     *
+     * @param link Link to page
+     *             with job info.
+     * @return New {@link Post} object with
+     * jobs info at site sql.ru.
+     */
     @Override
     public Post detail(String link) {
         String title = "default";
