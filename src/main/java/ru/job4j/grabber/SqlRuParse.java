@@ -1,11 +1,10 @@
-package ru.job4j.parser;
+package ru.job4j.grabber;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import ru.job4j.converters.Converter;
-import ru.job4j.data.Post;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

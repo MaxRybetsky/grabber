@@ -1,6 +1,4 @@
-package ru.job4j.parser;
-
-import ru.job4j.data.Post;
+package ru.job4j.grabber;
 
 import java.util.List;
 
