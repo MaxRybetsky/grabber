@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
  */
 public class Post {
     /**
+     * Post's ID
+     */
+    private int id;
+
+    /**
      * Post's title.
      */
     private final String title;
@@ -27,7 +32,8 @@ public class Post {
     private final String link;
 
     /**
-     * Creates new Post with input job's info.
+     * Creates new Post with input job's info
+     * and zero id value.
      *
      * @param title       Input post's title.
      * @param description Input post's description.
@@ -35,10 +41,42 @@ public class Post {
      * @param link        Input post's link to job's offer.
      */
     public Post(String title, String description, LocalDateTime date, String link) {
+        this(0, title, description, date, link);
+    }
+
+    /**
+     * Creates new Post with input job's info
+     * and with the given id value.
+     *
+     * @param id          Input post's id
+     * @param title       Input post's title.
+     * @param description Input post's description.
+     * @param date        Input post's date of creation.
+     * @param link        Input post's link to job's offer.
+     */
+    public Post(int id, String title, String description, LocalDateTime date, String link) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.date = date;
         this.link = link;
+    }
+
+    /**
+     * Shows this {@link Post}'s object's id.
+     *
+     * @return {@link Post#id}.
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets this {@link Post}'s object's id.
+     * @param id The specify post's id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
