@@ -3,5 +3,5 @@ create table post(
 	name text,
 	post_desc text,
 	link text unique,
-	created date
+	created timestamp
 );
