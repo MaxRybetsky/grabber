@@ -126,7 +126,8 @@ public class Post {
     @Override
     public String toString() {
         return "Post{"
-                + "title='" + title + '\''
+                + "id=" + id
+                + ", title='" + title + '\''
                 + ", description='" + description + '\''
                 + ", date=" + date
                 + ", link='" + link + '\''
