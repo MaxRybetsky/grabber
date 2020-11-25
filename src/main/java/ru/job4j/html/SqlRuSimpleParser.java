@@ -10,7 +10,7 @@ import ru.job4j.data.Post;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class SqlRuParse {
+public class SqlRuSimpleParser {
     public static void main(String[] args) throws IOException {
         printJobsList(5);
         System.out.println(getJobInfo("https://www.sql.ru/forum/1331208/"
