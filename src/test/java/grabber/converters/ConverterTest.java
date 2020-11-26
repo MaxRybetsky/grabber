@@ -1,4 +1,4 @@
-package ru.job4j.converters;
+package grabber.converters;
 
 import org.junit.Test;
 

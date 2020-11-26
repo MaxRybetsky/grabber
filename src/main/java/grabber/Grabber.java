@@ -1,4 +1,4 @@
-package ru.job4j.grabber;
+package grabber;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
@@ -115,6 +115,11 @@ public class Grabber implements Grab {
         }
     }
 
+    /**
+     * Shows parsed data in browser.
+     *
+     * @param store Storage of parsed data
+     */
     public void web(Store store) {
         new Thread(() -> {
             try (ServerSocket server = new ServerSocket(Integer.parseInt(cfg.getProperty("port")))) {
@@ -126,8 +131,17 @@ public class Grabber implements Grab {
                                 + "content=\"text/html; charset=UTF-8\"></head><body>\n")
                                 .getBytes());
                         for (Post post : store.getAll()) {
-                            out.write(post.toString().getBytes());
-                            out.write("<br><br>".getBytes());
+                            out.write("<p><b>".getBytes());
+                            out.write(post.getTitle().getBytes());
+                            out.write("</b><br>".getBytes());
+                            out.write(post.getDescription().getBytes());
+                            out.write("<br>".getBytes());
+                            out.write(post.getDate().toString().getBytes());
+                            out.write("   <i>".getBytes());
+                            out.write(post.getLink().getBytes());
+                            out.write("</i>".getBytes());
+                            out.write("</p>".getBytes());
+                            out.write("<br>".getBytes());
                         }
                         out.write(("</body></html>\n").getBytes());
                     } catch (IOException io) {
@@ -139,7 +153,6 @@ public class Grabber implements Grab {
             }
         }).start();
     }
-
 
     public static void main(String[] args) throws Exception {
         Grabber grab = new Grabber();
